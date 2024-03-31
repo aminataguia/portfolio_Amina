@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+body {
+  background: #080808;
+  color: #fff;
+}
+#header {
+  width: 100%;
+  height: 100vh;
+  background-image: url(images/background.png); /* Added missing semicolon here */
+  background-size: cover;
+  background-position: center;
+}
+.container {
+  padding: 10px 10%;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.logo {
+  width: 140px;
+}
+nav ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 10px 20px;
+}
+
+nav ul li a {
+  color: #fff; /* Added missing semicolon here */
+  text-decoration: none; /* Added missing semicolon here */
+  font-size: 18px; /* Added missing semicolon here */
+  position: relative;
+}
+nav ul li a::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: 0.5s;
+}
+nav ul li a:hover::after {
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
+.header-text {
+  margin-top: 20%;
+  font-size: 30px;
+}
+.header-text h1 {
+  font-size: 60px;
+  margin-top: 20px;
+  color: #fff;
+}
+.header-text h1 span {
+  color: #761010;
+}
+/*-----------------------abt----------------------------->*/
+
+#about {
+  padding: 80px 0;
+  color: #ababab;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.user {
+  width: 50%;
+}
+.about-col-1 {
+  flex-basis: 35%;
+}
+.about-col-1 img {
+  width: 100%;
+  border-radius: 15%;
+}
+.about-col-2 {
+  flex-basis: 65%;
+}
+.sub-title {
+  font-size: 60px;
+  font-weight: 600; /* Corrected the typo here */
+  color: #fff;
+}
+.tab-titles {
+  display: flex;
+  margin: 20 px 0 40px;
+}
+.tab-links {
+  margin-right: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}
+.tab-links::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  background: #761010;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  transition: 0.5s;
+}
+.tab-links.active-link::after {
+  width: 50%;
+  color: #fff;
+ }
+ 
+.tab-contents ul li {
+  list-style: none;
+  margin: 10px 0;
+}
+.tab-contents ul li span {
+  color: #761010;
+  font-size: 14px;
+}
+.tab-contents{
+  display:none;
+}
+.tab-contents.active-tab{
+  display:block
+}
+/* ----------------------service-bar--------------------*/ 
+.services{
+  padding: 30px 0;
+  color: #ababab;
+}
+.services-list{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 40px;
+  margin-top: 50px;
+}
+.services-list div{
+  background: #262626;
+  padding: 40px;
+  font-size: 13px;
+  border-radius: 10px;
+  font-weight: 300;
+  border-radius: 10 px;
+  transition: background 0.5s, transform 0.5s;
+}
+
+.services-list div i {
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+.serices-list div h2 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom:15px;
+}
+.serices-list div a {
+  text-decoration: none;
+  color:#fff;
+  font-size:12px;
+  margin-top:20px;
+  display:inline-block;
+}
+.services-list div:hover{
+  background: #761010;
+  transform: translateY(-10px);
+}
+/* ----------------portfolio ----------------*/
+/* Styles pour le conteneur principal */
+.container {
+  max-width: 1200px; /* Largeur maximale du conteneur */
+  margin: 0 auto; /* Centrer le conteneur horizontalement */
+  padding: 20px; /* Espacement interne du conteneur */
+}
+
+/* Styles pour la liste de travail */
+.work-list {
+  display: grid; /* Utiliser la grille CSS */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Créer des colonnes flexibles */
+  grid-gap: 20px; /* Espacement entre les éléments de la grille */
+  justify-items: center; /* Centrer les éléments horizontalement */
+}
+
+/* Styles pour chaque élément de travail */
+.work {
+  position: relative; /* Position relative pour permettre l'utilisation de position absolue pour le layer */
+  overflow: hidden; /* Cacher le contenu débordant */
+}
+
+/* Styles pour le layer */
+.layer {
+  position: absolute; /* Position absolue pour superposer le layer sur l'image */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Cacher le layer par défaut */
+  transition: opacity 0.3s ease; /* Transition pour l'effet de survol */
+}
+
+/* Effet de survol pour le layer */
+.work:hover .layer {
+  opacity: 1; /* Afficher le layer au survol */
+}
+
+/* Styles pour les images */
+.work img {
+  width: 100%; /* Largeur maximale de l'image */
+  height: auto; /* Hauteur automatique pour maintenir les proportions */
+  transition: transform 0.3s ease; /* Transition pour l'effet de survol */
+}
+
+/* Effet de survol pour les images */
+.work:hover img {
+  transform: scale(1.05); /* Agrandir légèrement l'image au survol */
+}

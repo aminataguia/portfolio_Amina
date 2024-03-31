@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Personnel</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/b6d427c49a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="images/logo.png" class="logo">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <p>Développeuse Data et intelligence artificielle</p>
+            <h1>Bonjour ! Je m'appelle <span>Amina</span> Taguia</h1>
+        </div>
+    
+    </div>
+</div>
+<!---------------------------------------------------------------À propos------------------------------------------------>
+
+<div id="about"> 
+    <div class="container">
+        <div class="row">
+           <div class="about-col-1">
+            <img src="images/user.png" class="user">
+            </div>
+           <div class="about-col-2">
+                <h1 class="sub-title"> À propos de moi </h1>
+                <p>Chimiste de formation en pleine reconversion vers le domaine des données et de l'intelligence artificielle, je suis passionnée par l'actualité informatique et la résolution de problèmes (informatique uniquement).</p>
+
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('competence', event)">Compétences</p>
+                    <p class="tab-links" onclick="opentab('experience', event)">Expériences</p>
+                    <p class="tab-links" onclick="opentab('formation', event)">Formations</p>
+                    
+                </div>
+                <div class="tab-contents active-tab" id="competence">
+                <ul>
+                    <li><span>Logiciels maîtrisés</span><br>Excel, Word, PowerPoint, Outlook, Regressi, Page </li>
+                    <li><span>Certificats en cours d'acquisition</span><br>Microsoft Azure Fundamentals - AZ-AI-900, RNCP34757</li>
+                    <li><span>Compétences</span><br>Fullstack, gestion BDD, Docker </li>
+                </ul>
+            </div>
+            <div class="tab-contents" id="experience">
+                <ul>
+                    <li><span>Chimiste </span><br>Centrale Nucléaire (EDF), Saint-Laurent-Nouan </li>
+                    <li><span>Technicienne de laboratoire</span><br>Labosud, Montpellier </li>
+                    <li><span>Intérim</span><br>Oxygène Intérim, Montpellier </li>
+                </ul>
+            </div>
+            <div class="tab-contents" id="formation">
+                <ul>
+                    <li><span>Formation Dev-IA </span><br>Formation Développeuse Data et intelligence artificielle, Simplon, Montpellier </li>
+                    <li><span>BTS CHIMIE</span><br>BTS Chimiste, au lycée Galilée à Vienne </li>
+                    <li><span>Bac STL</span><br>Bac sciences techniques de laboratoire au lycée Jean Mermoz, Montpellier </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+ </div>
+ <!--------------------------Services-->
+<div id="services">
+    <div class="container">
+       <h1 class="sub-title">Mes services</h1>
+       <div class="services-list">
+        <div>
+            <i class="fa-solid fa-brain"></i>
+            <h2>Modèles IA</h2>
+            <p>Entraînement et implémentation de modèles pour répondre à de nombreux besoins de prédiction.</p>
+            <a href="#">En savoir plus </a>
+            
+        </div>
+        <div>
+            <i class="fa-brands fa-bots"></i>
+            <h2>Chatbot</h2>
+            <p>Aide et choix d'API d'IA et intégration dans le front.</p>
+            <a href="#">En savoir plus </a>
+            
+        </div>
+        <div>
+            <i class="fa-solid fa-code"></i>
+            <h2>Web design</h2>
+            <p>Site web</p>
+            <a href="#">En savoir plus </a>
+            
+        </div>
+    </div>
+</div>
+<!-------------------------------portfolio---------------->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">Mon travail</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/work-1.png">
+                <div class="layer">
+                    <h3>Social Media APP</h3>
+                    <p> blabla</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+            </div>
+            <div class="work">
+                <img src="images/work-2.png">
+                <div class="layer">
+                    <h3>Social Media APP</h3>
+                    <p> blabla</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+            </div>
+            </div>
+            <div class="work">
+                <img src="images/work-3.png">
+                <div class="layer">
+                    <h3>Social Media APP</h3>
+                    <p> blabla</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!----------------chatbot-------------------------------------->
+<div id="portfolio">
+</div class="container">
+    <h1 class="sub-title">Mon Chatbot</h1>
+</div>
+</div>
+<!-----------------------------js -->
+<script>
+    function opentab(tabname, event) {
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+    
+        for (var i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active-link");
+        }
+    
+        for (var i = 0; i < tabcontents.length; i++) {
+            tabcontents[i].classList.remove("active-tab");
+        }
+    
+        // Ajoute la classe 'active-link' au lien d'onglet sélectionné
+        event.currentTarget.classList.add("active-link");
+    
+        // Vérifie si l'élément avec l'ID correspondant existe avant d'essayer d'accéder à sa propriété classList
+        var activeTabContent = document.getElementById(tabname);
+        if (activeTabContent) {
+            activeTabContent.classList.add("active-tab");
+        } else {
+            console.error("L'élément avec l'ID " + tabname + " n'a pas été trouvé.");
+        }
+    }
+</script>
+</body>
+</html>
