@@ -13,13 +13,17 @@
     <div class="container">
         <nav>
             <img src="images/logo.png" class="logo">
-            <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">À propos</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact</a></li>
+            <ul id="sidemenu">
+                <li><a href="#header">Accueil</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#chatbot">Chatbot</a></li>
+                <i class="fas fa-time" onclick="closemenu()"></i>
             </ul>
+
+                <i class="fas fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
             <p>Développeuse Data et intelligence artificielle</p>
@@ -33,13 +37,12 @@
 <div id="about"> 
     <div class="container">
         <div class="row">
-           <div class="about-col-1">
-            <img src="images/user.png" class="user">
+            <div class="about-col-1">
+                <img src="images/user.png" class="user">
             </div>
-           <div class="about-col-2">
-                <h1 class="sub-title"> À propos de moi </h1>
+            <div class="about-col-2">
+                <h1 class="sub-title">À propos de moi</h1>
                 <p>Chimiste de formation en pleine reconversion vers le domaine des données et de l'intelligence artificielle, je suis passionnée par l'actualité informatique et la résolution de problèmes (informatique uniquement).</p>
-
 
                 <div class="tab-titles">
                     <p class="tab-links active-link" onclick="opentab('competence', event)">Compétences</p>
@@ -48,29 +51,31 @@
                     
                 </div>
                 <div class="tab-contents active-tab" id="competence">
-                <ul>
-                    <li><span>Logiciels maîtrisés</span><br>Excel, Word, PowerPoint, Outlook, Regressi, Page </li>
-                    <li><span>Certificats en cours d'acquisition</span><br>Microsoft Azure Fundamentals - AZ-AI-900, RNCP34757</li>
-                    <li><span>Compétences</span><br>Fullstack, gestion BDD, Docker </li>
-                </ul>
-            </div>
-            <div class="tab-contents" id="experience">
-                <ul>
-                    <li><span>Chimiste </span><br>Centrale Nucléaire (EDF), Saint-Laurent-Nouan </li>
-                    <li><span>Technicienne de laboratoire</span><br>Labosud, Montpellier </li>
-                    <li><span>Intérim</span><br>Oxygène Intérim, Montpellier </li>
-                </ul>
-            </div>
-            <div class="tab-contents" id="formation">
-                <ul>
-                    <li><span>Formation Dev-IA </span><br>Formation Développeuse Data et intelligence artificielle, Simplon, Montpellier </li>
-                    <li><span>BTS CHIMIE</span><br>BTS Chimiste, au lycée Galilée à Vienne </li>
-                    <li><span>Bac STL</span><br>Bac sciences techniques de laboratoire au lycée Jean Mermoz, Montpellier </li>
-                </ul>
+                    <ul>
+                        <li><span>Logiciels maîtrisés</span><br>Excel, Word, PowerPoint, Outlook, Regressi, Page</li>
+                        <li><span>Certificats en cours d'acquisition</span><br>Microsoft Azure Fundamentals - AZ-AI-900, RNCP34757</li>
+                        <li><span>Compétences</span><br>Fullstack, gestion BDD, Docker, Python, SQL, HTML, AZURE, Machine Learning, Data Science, Deep Learning</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>Chimiste</span><br>Centrale Nucléaire (EDF), Saint-Laurent-Nouan</li>
+                        <li><span>Technicienne de laboratoire</span><br>Labosud, Montpellier</li>
+                        <li><span>Intérim</span><br>Oxygène Intérim, Montpellier</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="formation">
+                    <ul>
+                        <li><span>Formation Dev-IA</span><br>Formation Développeuse Data et intelligence artificielle, Simplon, Montpellier</li>
+                        <li><span>BTS CHIMIE</span><br>BTS Chimiste, au lycée Galilée à Vienne</li>
+                        <li><span>Bac STL</span><br>Bac sciences techniques de laboratoire au lycée Jean Mermoz, Montpellier</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
- </div>
+</div>
+
  <!--------------------------Services-->
 <div id="services">
     <div class="container">
@@ -107,54 +112,89 @@
             <div class="work">
                 <img src="images/work-1.png">
                 <div class="layer">
-                    <h3>Social Media APP</h3>
-                    <p> blabla</p>
-                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                    <h3>MList LaPoste</h3>
+                    <p> Prédiction/Reconnaissance de nombres </p>
+                    <a href="https://github.com/aminataguia/Number_recognition"><i class="fa-solid fa-link"></i></a>
+                </div>
             </div>
             <div class="work">
                 <img src="images/work-2.png">
                 <div class="layer">
-                    <h3>Social Media APP</h3>
-                    <p> blabla</p>
-                    <a href="#"><i class="fa-solid fa-link"></i></a>
-            </div>
+                    <h3>MovieWize Recommander</h3>
+                    <p> Prédictions de films susceptibles de plaire</p>
+                    <a href="https://github.com/aminataguia/MovieWise_Recommender_System"><i class="fa-solid fa-link"></i></a>
+                </div>
             </div>
             <div class="work">
                 <img src="images/work-3.png">
                 <div class="layer">
-                    <h3>Social Media APP</h3>
-                    <p> blabla</p>
-                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                    <h3>Immo Prediction</h3>
+                    <p> Prédiction du prix immobilier en fonction de ses coordonnées </p>
+                    <a href="https://github.com/aminataguia/Prediction_immo"><i class="fa-solid fa-link"></i></a>
+                </div>
             </div>
+        </div>
+       <a href="https://github.com/aminataguia" class="btn">Voir plus</a> 
+    </div>
+</div>
+
+<!-------------------------------contact------------------------------------>
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="subtitle">Me contacter</h1>
+                <p><i class="fa-solid fa-paper-plane"></i> <span class="email">amina.taguia.dev.ia@gmail.com</span></p>
+                <p><i class="fa-solid fa-phone"></i><span class="phone-number">+33 7 86 03 91 49</span></p>
+                <div class="social-icons">
+                    <a href="https://github.com/aminataguia"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/amina-taguia/"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <a href="images/my-cv.pdf" download class="btn btn2">Télécharger CV</a> <!-- Déplace le lien ici -->
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Votre nom" required>
+                    <input type="email" name="Email" placeholder="Votre mail" required>
+                    <textarea name="Message" placeholder="Votre message" required></textarea>
+                    <button class="btn btn2" type="submit">Submit</button>
+                </form>
+                <span id="msg"></span>
             </div>
         </div>
     </div>
 </div>
 
+
 <!----------------chatbot-------------------------------------->
-<div id="portfolio">
+<div id="chatbot">
 </div class="container">
     <h1 class="sub-title">Mon Chatbot</h1>
 </div>
 </div>
+<div class="copyright">
+    <p>Droit d'auteur Amina. Fait avec le <i class="fas fa-heart"></i> Fait par Amina Taguia </p>
+</div>
+
 <!-----------------------------js -->
 <script>
     function opentab(tabname, event) {
-        var tablinks = document.getElementsByClassName("tab-links");
-        var tabcontents = document.getElementsByClassName("tab-contents");
-    
-        for (var i = 0; i < tablinks.length; i++) {
-            tablinks[i].classList.remove("active-link");
+        // Remove 'active-link' from the currently active tab link
+        var currentActiveLink = document.querySelector(".active-link");
+        if (currentActiveLink) {
+            currentActiveLink.classList.remove("active-link");
         }
-    
-        for (var i = 0; i < tabcontents.length; i++) {
-            tabcontents[i].classList.remove("active-tab");
+
+        // Remove 'active-tab' from the currently active tab content
+        var currentActiveTab = document.querySelector(".active-tab");
+        if (currentActiveTab) {
+            currentActiveTab.classList.remove("active-tab");
         }
-    
-        // Ajoute la classe 'active-link' au lien d'onglet sélectionné
+
+        // Add 'active-link' to the clicked tab link
         event.currentTarget.classList.add("active-link");
-    
-        // Vérifie si l'élément avec l'ID correspondant existe avant d'essayer d'accéder à sa propriété classList
+
+        // Check if the element with the ID exists before trying to access its classList
         var activeTabContent = document.getElementById(tabname);
         if (activeTabContent) {
             activeTabContent.classList.add("active-tab");
@@ -163,5 +203,32 @@
         }
     }
 </script>
+<script>
+    var sidemeu = document.getElementById("sidemeu");
+    function openmenu() {
+        sidemeu.style.right = "0";
+    }
+    function closemenu() {
+        sidemeu.style.right = "-200px";
+    }
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwCgbvMf_6WWjmzxjaCqAs5HxEDJZ9T1MG0t69g9yCw_KahkyG4FhrtXjTLwEUegZ8_ww/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg= document.getElementById("msg")
+    form.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            // Assuming 'msg' is a variable that refers to an HTML element where you want to display the message
+            msg.innerHTML = "Message envoyé avec succès, Merci ! ";
+            setTimeout(function(){
+                msg.innerHTML = "";
+            }, 5000);
+        })
+        .catch(error => console.error('Error!', error.message));
+});
+
+  </script>
 </body>
 </html>

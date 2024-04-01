@@ -4,6 +4,9 @@
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
+html{
+  scroll-behavior: smooth
+}
 body {
   background: #080808;
   color: #fff;
@@ -91,10 +94,12 @@ nav ul li a:hover::after {
 .about-col-2 {
   flex-basis: 65%;
 }
-.sub-title {
-  font-size: 60px;
-  font-weight: 600; /* Corrected the typo here */
-  color: #fff;
+
+.subtitle {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
 }
 .tab-titles {
   display: flex;
@@ -120,8 +125,8 @@ nav ul li a:hover::after {
 .tab-links.active-link::after {
   width: 50%;
   color: #fff;
- }
- 
+}
+
 .tab-contents ul li {
   list-style: none;
   margin: 10px 0;
@@ -130,24 +135,24 @@ nav ul li a:hover::after {
   color: #761010;
   font-size: 14px;
 }
-.tab-contents{
-  display:none;
+.tab-contents {
+  display: none;
 }
-.tab-contents.active-tab{
-  display:block
+.tab-contents.active-tab {
+  display: block;
 }
-/* ----------------------service-bar--------------------*/ 
-.services{
+/* ----------------------service-bar--------------------*/
+.services {
   padding: 30px 0;
   color: #ababab;
 }
-.services-list{
-  display:grid;
+.services-list {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 40px;
   margin-top: 50px;
 }
-.services-list div{
+.services-list div {
   background: #262626;
   padding: 40px;
   font-size: 13px;
@@ -164,21 +169,24 @@ nav ul li a:hover::after {
 .serices-list div h2 {
   font-size: 30px;
   font-weight: 500;
-  margin-bottom:15px;
+  margin-bottom: 15px;
 }
 .serices-list div a {
   text-decoration: none;
-  color:#fff;
-  font-size:12px;
-  margin-top:20px;
-  display:inline-block;
+  color: #fff;
+  font-size: 12px;
+  margin-top: 20px;
+  display: inline-block;
 }
-.services-list div:hover{
+.services-list div:hover {
   background: #761010;
   transform: translateY(-10px);
 }
 /* ----------------portfolio ----------------*/
 /* Styles pour le conteneur principal */
+#portfolio {
+  padding: 50px 0;
+}
 .container {
   max-width: 1200px; /* Largeur maximale du conteneur */
   margin: 0 auto; /* Centrer le conteneur horizontalement */
@@ -188,15 +196,19 @@ nav ul li a:hover::after {
 /* Styles pour la liste de travail */
 .work-list {
   display: grid; /* Utiliser la grille CSS */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Créer des colonnes flexibles */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Créer des colonnes flexibles */
   grid-gap: 20px; /* Espacement entre les éléments de la grille */
-  justify-items: center; /* Centrer les éléments horizontalement */
+  margin-top: 50px; /* Centrer les éléments horizontalement */
 }
 
 /* Styles pour chaque élément de travail */
 .work {
   position: relative; /* Position relative pour permettre l'utilisation de position absolue pour le layer */
-  overflow: hidden; /* Cacher le contenu débordant */
+  overflow: hidden;
+  border-radius: 10px; /* Cacher le contenu débordant */
 }
 
 /* Styles pour le layer */
@@ -204,7 +216,12 @@ nav ul li a:hover::after {
   position: absolute; /* Position absolue pour superposer le layer sur l'image */
   top: 0;
   left: 0;
+  bottom: 0;
+  overflow: hidden;
+  padding: 0 40px;
   width: 100%;
+  border-radius: 10px;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), #761010);
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
   display: flex;
@@ -212,7 +229,8 @@ nav ul li a:hover::after {
   justify-content: center;
   align-items: center;
   opacity: 0; /* Cacher le layer par défaut */
-  transition: opacity 0.3s ease; /* Transition pour l'effet de survol */
+  transition: opacity 0.3s ease;
+  font-size: 14px; /* Transition pour l'effet de survol */
 }
 
 /* Effet de survol pour le layer */
@@ -224,10 +242,229 @@ nav ul li a:hover::after {
 .work img {
   width: 100%; /* Largeur maximale de l'image */
   height: auto; /* Hauteur automatique pour maintenir les proportions */
-  transition: transform 0.3s ease; /* Transition pour l'effet de survol */
+  transition: transform 0.3s ease;
+  border: radius 10px;
+  display: block; /* Transition pour l'effet de survol */
 }
 
 /* Effet de survol pour les images */
 .work:hover img {
   transform: scale(1.05); /* Agrandir légèrement l'image au survol */
+}
+.layer h3 {
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.layer a {
+  margin: top 20px;
+  color: #761010;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 60px;
+  background: #fff;
+  width: 60px;
+  height: 60 px;
+  border-radius: 50%;
+  text-align: center;
+}
+.work:hover img {
+  transform: scale(1.1);
+}
+.btn {
+  display: inline-block; /* Changed to inline-block for better alignment */
+  margin: 41px auto;
+  padding: 15px 30px; /* Reduced padding for better appearance */
+  border: 2px solid #761010; /* Reduced border width for a cleaner look */
+  border-radius: 12px;
+  background-color: #761010; /* Added background color */
+  color: #fff;
+  font-size: 18px; /* Increased font size for better readability */
+  font-weight: bold; /* Made the text bold */
+  text-decoration: none;
+  transition: background-color 0.5s, transform 0.3s; /* Added transform for hover effect */
+}
+.btn:hover {
+  background: #761010;
+}
+/* --------------contact---------------------*/
+/* Alignement des éléments de la section de contact */
+.contact-left {
+  flex-basis: 35%;
+}
+.email, .phone-number {
+  float: left; /* Aligne les éléments à gauche */
+  margin-right: 10px; /* Ajoute un peu d'espace à droite */
+}
+
+.contact-right {
+  flex-basis: 60%;
+}
+
+/* Ajustement de la marge du paragraphe dans la section de contact */
+.contact-left p {
+  margin-top: 30px;
+}
+
+/* Style pour l'icône dans la section de contact */
+.contact-left p i {
+  color: #761010;
+  font-size: 25px;
+}
+
+/* Style pour les icônes sociales */
+.social-icons {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.social-icons a {
+  text-decoration: none;
+  font-size: 24px; /* Ajuste la taille des icônes */
+  color: #ababab;
+  transition: transform 0.5s;
+  margin-right: 10px;
+}
+
+/* Style pour les icônes sociales au survol */
+.social-icons a:hover {
+  color: #761010;
+  transform: translateY(-5px);
+}
+
+/* Style pour le bouton */
+.btn.btn2 {
+  display: inline-block;
+  margin: 41px auto;
+  padding: 15px 30px;
+  border: 2px solid #761010;
+  border-radius: 12px;
+  background-color: #761010;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.5s, transform 0.3s;
+}
+
+/* Style pour le formulaire de contact */
+.contact-right form {
+  width: 100%;
+}
+
+/* Style pour les champs de formulaire */
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  background: #262626;
+  border: 0;
+  border-bottom: 2px solid #761010;
+  outline: none;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+/* Style pour le bouton du formulaire */
+form .btn2 {
+  padding: 14px 60px;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+/* Style pour le bouton au survol */
+.btn:hover {
+  background-color: #9a2020;
+  transform: scale(1.05);
+}
+
+/* Style pour l'icône du cœur */
+.fas.fa-heart {
+  color: #761010;
+}
+
+/* Style pour le pied de page */
+.copyright {
+  width: 100%;
+  text-align: center;
+  padding: 25px 0;
+  background: #262626;
+  font-weight: 300;
+  margin-top: 20px;
+}
+
+/* Style pour l'icône du pied de page */
+.copyright i{
+  color: #761010;
+  margin-right: 10px;
+}
+
+/*----------------------css pour les petit ecran----------*/
+nav .fas{
+  display:none;
+}
+@media only screen and (max-with: 600px) {
+  #header{
+    background-image: url(../images/phone-background.png);
+  }
+  .header-text{
+    margin-top:100%;
+    font-size:16px;
+  }
+  .header-text h1{
+    font-size: 30px;
+  }
+  nav .fas{
+    display:block;
+    font-size: 25px
+  }
+  nav ul{
+    background:#761010;
+    position: fixed;
+    top:0;
+    right:-200px;
+    width: 200px;
+    height: 100vh;
+    padding-top: 50px;
+    z-index: 2;
+    transition:right 0.5s;
+  }
+  nav ul li{
+    display: block;
+    margin: 25px;
+  }
+  nav ul .fas{
+    position:absolute;
+    top: 25px;
+    left: 25px;
+    cursor: pointer;
+  }
+  .sub-title{
+    font-size: 40px;
+  }
+  .avout-col-1, .about-col-2 {
+    flex-basis: 100%;
+  }
+  .about-col-1{
+    margin-bottom:30px;
+  }
+  .about-col-2{
+    font-size:14px;
+  }
+  .tab-links{ 
+    font-size:16px;
+    margin-right: 20px;
+  }
+  .contact-left, .contacy-right {
+    flex-basis:100%
+}
+  .copyright{
+    font-size:14px;
+  }
+}
+#span{
+  color: #61b752;
+  margin-top: -10 ;
+  display: block;
 }
