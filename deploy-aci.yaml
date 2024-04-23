@@ -1,0 +1,37 @@
+apiVersion: 2019-12-01
+location: francecentral
+name: aminab15
+properties:
+  imageRegistryCredentials:
+    - server: aminab15.azurecr.io
+      username: aminab15
+      password: X/QJeKVbvQKsp3sWozoOreWvet0u/8JLTwapL35FCi+ACRCwKp/r
+  containers:
+    - name: backend
+      properties:
+        image: aminab15.azurecr.io/portfolioback:latest
+        ports:
+          - port: 8002
+        resources:
+          requests:
+            cpu: 1
+            memoryInGb: 1.5
+    - name: frontend
+      properties:
+        image: aminab15.azurecr.io/portfoliofront:latest
+        ports:
+          - port: 8001
+        resources:
+          requests:
+            cpu: 1
+            memoryInGb: 1.5
+  osType: Linux
+  ipAddress:
+    type: Public
+    dnsNameLabel: aminab15dnslabel
+    ports:
+      - protocol: tcp
+        port: 8002
+      - protocol: tcp
+        port: 8001
+type: Microsoft.ContainerInstance/containerGroups

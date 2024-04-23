@@ -1,0 +1,59 @@
+name: CI/CD Pipeline to Azure
+
+on: [push]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: pip install pytest
+
+      - name: Test with pytest
+        run: cd backend && pytest test.py
+
+  build-and-deploy:
+    needs: build-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Azure ACR Login
+        run: az acr login --name aminab15
+
+      - name: Build and Push Docker Images
+        run: |
+          docker build -t aminab15.azurecr.io/b15front:v1 -f frontend/Dockerfile frontend
+          docker build -t aminab15.azurecr.io/b15back:v1 -f backend/Dockerfile backend
+          docker push aminab15.azurecr.io/b15front:v1
+          docker push aminab15.azurecr.io/b15back:v1
+
+      - name: Deploy to Azure Container Instances
+        uses: azure/CLI@v1
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az container create --resource-group gr_aminab15 --name aminab15-front \
+              --image aminab15.azurecr.io/b15front:v1 \
+              --cpu 1 --memory 1 \
+              --ports 8000 \
+              --dns-name-label aminab15-front-clustering \
+              --registry-login-server aminab15.azurecr.io \
+              --registry-username aminab15 \
+              --registry-password ${{ secrets.AZURE_REGISTRY }}
+
+            az container create --resource-group gr_aminab15 --name aminab15-back \
+              --image aminab15.azurecr.io/b15back:v1 \
+              --cpu 1 --memory 1 \
+              --ports 8000 \
+              --dns-name-label aminab15-back-clustering \
+              --registry-login-server aminab15.azurecr.io \
+              --registry-username aminab15 \
+              --registry-password ${{ secrets.AZURE_REGISTRY }}

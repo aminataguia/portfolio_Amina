@@ -1,0 +1,35 @@
+Dockerisation/ AZ / CI
+
+Build sur docker 
+docker build -t portfoliofront .
+docker build -t portfolioback .
+
+run sur docker 
+docker run -p 8002:8002 portfolioback
+docker run -p 8001:8001 portfoliofront
+
+mes images docker 
+portfolioback                       latest    73220b70392b   17 hours ago   158MB
+portfoliofront                      latest    97a177b222f2   17 hours ago   65.1MB
+
+connexion au registre de conteneur 
+ az acr login --name aminab15
+
+recuperer credential si non fait 
+az acr update -n aminab15 --admin-enabled true
+az acr credential show --name aminab15 --query "passwords[0].value" --output tsv
+
+Taguer les images dockers 
+docker tag portfoliofront:latest aminab15.azurecr.io/portfoliofront:latest
+docker tag portfolioback:latest aminab15.azurecr.io/portfolioback:latest
+
+#push les images sur azure
+
+docker push aminab15.azurecr.io/portfolioback:latest
+docker push aminab15.azurecr.io/portfoliofront:latest
+
+# Build le conteneur
+
+az container create --resource-group gr_aminab15 --file deploy-aci.yaml --registry-username aminab15 --registry-password X/QJeKVbvQKsp3sWozoOreWvet0u/8JLTwapL35FCi+ACRCwKp/r
+
+az ad sp create-for-rbac -n aminaServicePrincipal --role Contributor --scopes subscriptions/e4ef8725-8885-4c43-9e0a-f9a0a35b56d7/resourceGroups/graminab15
