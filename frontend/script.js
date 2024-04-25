@@ -14,7 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
        </div>`;
 
     try {
-      const response = await fetch("http://localhost:http://aminab15dnslabel.francecentral.azurecontainer.io:8002/chatbot",
+      const response = await fetch(
+        "http://portfolioaminaback.francecentral.azurecontainer.io:8002/chatbot",
         {
           method: "POST",
           headers: {
