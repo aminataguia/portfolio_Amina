@@ -47,7 +47,7 @@ jobs:
               --dns-name-label portfolioaminafront \
               --registry-login-server aminab15.azurecr.io \
               --registry-username aminab15 \
-              --registry-password ${{ X/QJeKVbvQKsp3sWozoOreWvet0u/8JLTwapL35FCi+ACRCwKp/r }}
+              --registry-password ${{ secrets.AZURE_CREDENTIALS }}
 
             az container create --resource-group gr_aminab15 --name aminab15-back \
               --image aminab15.azurecr.io/b15back:v1 \
