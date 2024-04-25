@@ -51,7 +51,7 @@ jobs:
               --registry-username aminab15 \
               --registry-password ${{ secrets.AZURE_REGISTRY }}
 
-            az container create --resource-group gr_aminab15 --name aminab15-back \
+            az container create --resource-group gr_aminab15 --name aminab09-back \
               --image aminab15.azurecr.io/portfolioback:latest \
               --cpu 1 --memory 1 \
               --ports 8000 \
