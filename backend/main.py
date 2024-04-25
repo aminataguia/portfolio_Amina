@@ -46,5 +46,22 @@ async def chatbot(request: Request):
     rp = result[provider]
     return {"generated_text": rp['generated_text']}
 
+#@app.post("/{prompt}")
+#async def chatbot(prompt):    
+#    payload = {
+#        "providers": provider,
+#        "text": prompt,
+#        "chatbot_global_action": f"Act like an assistant and answer this: {prompt}",
+#        "previous_history": [],
+#        "temperature": 0.5,
+#        "max_tokens": 50,
+#        "fallback_providers": ""
+#    }
+#    
+#    response = requests.post(url, json=payload, headers=headers)
+#    result = json.loads(response.text)
+#    rp = result[provider]
+#    return {"generated_text": rp['generated_text']}
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8002)

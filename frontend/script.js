@@ -14,13 +14,15 @@ document.addEventListener("DOMContentLoaded", function () {
        </div>`;
 
     try {
-      const response = await fetch("http://localhost:8002/chatbot", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ prompt: message })
-      });
+      const response = await fetch("http://localhost:http://aminab15dnslabel.francecentral.azurecontainer.io:8002/chatbot",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ prompt: message }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Error while fetching from the API.");
@@ -36,9 +38,5 @@ document.addEventListener("DOMContentLoaded", function () {
     } catch (error) {
       console.error("Error!", error.message);
     }
+  });
 });
-
-});
-
-
-

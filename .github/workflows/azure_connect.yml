@@ -40,14 +40,14 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            az container create --resource-group gr_aminab15 --name aminab15-front \
+            az container create --resource-group gr_aminab15 --name aminab09-front \
               --image aminab15.azurecr.io/b15front:v1 \
               --cpu 1 --memory 1 \
-              --ports 8000 \
-              --dns-name-label aminab15-front-clustering \
+              --ports 8001 \
+              --dns-name-label portfolioaminafront \
               --registry-login-server aminab15.azurecr.io \
               --registry-username aminab15 \
-              --registry-password ${{ secrets.AZURE_REGISTRY }}
+              --registry-password ${{ X/QJeKVbvQKsp3sWozoOreWvet0u/8JLTwapL35FCi+ACRCwKp/r }}
 
             az container create --resource-group gr_aminab15 --name aminab15-back \
               --image aminab15.azurecr.io/b15back:v1 \
