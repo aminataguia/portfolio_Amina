@@ -30,18 +30,20 @@ jobs:
 
       - name: Build and Push Docker Images
         run: |
-          docker build -t aminab15.azurecr.io/b15front:v1 -f frontend/Dockerfile frontend
-          docker build -t aminab15.azurecr.io/b15back:v1 -f backend/Dockerfile backend
-          docker push aminab15.azurecr.io/b15front:v1
-          docker push aminab15.azurecr.io/b15back:v1
-
+          docker build -t portfoliofront .
+          docker build -t portfolioback .
+          docker tag portfoliofront:latest aminab15.azurecr.io/portfoliofront:latest
+          docker tag portfolioback:latest aminab15.azurecr.io/portfolioback:latest
+          docker push aminab15.azurecr.io/portfolioback:latest
+          docker push aminab15.azurecr.io/portfoliofront:latest
+          
       - name: Deploy to Azure Container Instances
         uses: azure/CLI@v1
         with:
           azcliversion: latest
           inlineScript: |
             az container create --resource-group gr_aminab15 --name aminab09-front \
-              --image aminab15.azurecr.io/b15front:v1 \
+              --image aminab15.azurecr.io/portfoliofront:latest \
               --cpu 1 --memory 1 \
               --ports 8001 \
               --dns-name-label portfolioaminafront \
@@ -50,7 +52,7 @@ jobs:
               --registry-password ${{ secrets.AZURE_CREDENTIALS }}
 
             az container create --resource-group gr_aminab15 --name aminab15-back \
-              --image aminab15.azurecr.io/b15back:v1 \
+              --image aminab15.azurecr.io/portfolioback:latest \
               --cpu 1 --memory 1 \
               --ports 8000 \
               --dns-name-label aminab15-back-clustering \
