@@ -42,16 +42,16 @@ jobs:
           with:
             azcliversion: latest
             inlineScript: |
-            az container delete --name aminab09-back --resource-group gr_aminab15 --yes
-            az container create --resource-group gr_aminab15 --name aminab09-back \
-              --image aminab15.azurecr.io/portfolioback:latest \
-              --cpu 1 --memory 1 \
-              --ports 8000 \
-              --dns-name-label portfolioaminaback \
-              --registry-login-server aminab15.azurecr.io \
-              --registry-username aminab15 \
-              --registry-password ${{ secrets.AZURE_REGISTRY }}
-              
+              az container delete --name aminab09-back --resource-group gr_aminab15 --yes
+              az container create --resource-group gr_aminab15 --name aminab09-back \
+                --image aminab15.azurecr.io/portfolioback:latest \
+                --cpu 1 --memory 1 \
+                --ports 8000 \
+                --dns-name-label portfolioaminaback \
+                --registry-login-server aminab15.azurecr.io \
+                --registry-username aminab15 \
+                --registry-password ${{ secrets.AZURE_REGISTRY }}
+
               set -e  # Stop script execution on any error
               az container delete --name aminab09-front --resource-group gr_aminab15 --yes
               az container create --resource-group gr_aminab15 --name aminab09-front \
