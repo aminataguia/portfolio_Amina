@@ -57,7 +57,7 @@ jobs:
               --image aminab15.azurecr.io/portfolioback:latest \
               --cpu 1 --memory 1 \
               --ports 8000 \
-              --dns-name-label aminab15-back-clustering \
+              --dns-name-label portfolioaminaback \
               --registry-login-server aminab15.azurecr.io \
               --registry-username aminab15 \
               --registry-password ${{ secrets.AZURE_REGISTRY }}
