@@ -49,7 +49,7 @@ jobs:
               --dns-name-label portfolioaminafront \
               --registry-login-server aminab15.azurecr.io \
               --registry-username aminab15 \
-              --registry-password ${{ secrets.AZURE_CREDENTIALS }}
+              --registry-password ${{ secrets.AZURE_REGISTRY }}
 
             az container create --resource-group gr_aminab15 --name aminab15-back \
               --image aminab15.azurecr.io/portfolioback:latest \
