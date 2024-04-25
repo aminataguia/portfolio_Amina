@@ -46,7 +46,7 @@ jobs:
             az container create --resource-group gr_aminab15 --name aminab09-back \
               --image aminab15.azurecr.io/portfolioback:latest \
               --cpu 1 --memory 1 \
-              --ports 8000 \
+              --ports 8002 \
               --dns-name-label portfolioaminaback \
               --registry-login-server aminab15.azurecr.io \
               --registry-username aminab15 \
