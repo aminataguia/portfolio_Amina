@@ -30,8 +30,8 @@ jobs:
 
       - name: Build and Push Docker Images
         run: |
-          docker build -t portfoliofront .
-          docker build -t portfolioback .
+          docker build -t portfoliofront -f frontend/Dockerfile frontend .
+          docker build -t portfolioback -f backend/Dockerfile backend .
           docker tag portfoliofront:latest aminab15.azurecr.io/portfoliofront:latest
           docker tag portfolioback:latest aminab15.azurecr.io/portfolioback:latest
           docker push aminab15.azurecr.io/portfolioback:latest
