@@ -42,6 +42,7 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
+            az container delete --name aminab09-front --resource-group gr_aminab15 --yes
             az container create --resource-group gr_aminab15 --name aminab09-front \
               --image aminab15.azurecr.io/portfoliofront:latest \
               --cpu 1 --memory 1 \
@@ -51,6 +52,7 @@ jobs:
               --registry-username aminab15 \
               --registry-password ${{ secrets.AZURE_REGISTRY }}
 
+            az container delete --name aminab09-back --resource-group gr_aminab15 --yes
             az container create --resource-group gr_aminab15 --name aminab09-back \
               --image aminab15.azurecr.io/portfolioback:latest \
               --cpu 1 --memory 1 \
