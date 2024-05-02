@@ -24,7 +24,7 @@ pip install flask openai
 ## A step-by-step series of examples that tell you how to get a development environment running:
 
 Clone the repository:
-git clone https://github.com/aminataguia/portfolio-chatbot.git
+git clone https://github.com/aminataguia/portfolio_Amina.git
 cd portfolio-chatbot
 Set up your OpenAI API key:
 Create a .env file in the root directory and add your OpenAI API key(if mine didn't work ) :
