@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
        </div>`;
 
     try {
-      const response = await fetch("http://localhost:8002/chatbot", {
+      const response = await fetch("http://localhost:8002/talk", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
