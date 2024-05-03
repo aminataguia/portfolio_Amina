@@ -500,6 +500,7 @@ body {
   padding: 10px; /* Padding pour l'input */
   border: none; /* Pas de bordure */
   border-radius: 5px; /* Bords arrondis pour l'input */
+  color: white;
 }
 
 button[type="submit"] {

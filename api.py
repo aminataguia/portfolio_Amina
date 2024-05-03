@@ -1,10 +1,9 @@
-import os
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Body
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from typing import List
 import uvicorn
-
+import os
 from openai import AzureOpenAI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -29,20 +28,11 @@ client = AzureOpenAI(
 )
 
 class Message(BaseModel):
-    sender: str
-    message: str
+    role: str
+    content: str
 
-class ChatRequest(BaseModel):
-    system: str
-    history: List[Message]
-    temperature: float = 0.9
-    max_tokens: int = 1000
-    top_p: float = 0.95
-    frequency_penalty: float = 0.0
-    presence_penalty: float = 0.0
-
-@app.get("/talk", response_model=dict)
-async def talk(message: str = Query(..., description="Your message to the model")):
+@app.post("/talk", response_model=dict)
+async def talk(message: str = Body(..., description="Your message to the model")):
     message_text = [
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": message}
@@ -82,4 +72,4 @@ async def talk(message: str = Query(..., description="Your message to the model"
         return JSONResponse(status_code=500, content={"error": str(e)})
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8002) # Keep the same port
+    uvicorn.run(app, host="0.0.0.0", port=8002)
